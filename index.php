@@ -15,7 +15,7 @@
 	<body>
 
 	<div id="container">
-		<h1>To-Do List</h1>
+		<h1>ToDo List</h1>
 		
 		<ul id="tabs">
 			<li id="todo_tab" class="selected"><a href="#">To-Do</a></li>
