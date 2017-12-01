@@ -1,29 +1,27 @@
+
 <html>
 	<head>
 		<title>ToDo List</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 		
-		<!--[if lt IE 7]>
-			<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" type="text/javascript"></script>
-			<link rel="stylesheet" href="css/ie.css" />
-		<![endif]-->
+		
 		
 	</head>
 	<body>
 
-	<div id="container">
+	<div id="container" >
 		<h1>ToDo List</h1>
 		
-		<ul id="tabs">
-			<li id="todo_tab" class="selected"><a href="#">To-Do</a></li>
+		<ul id="tabs" >
+			<li id="todo_tab" class="selected" class="list-group" ><a href="#" >ToDo</a></li>
 		</ul>
 		
-		<div id="main">
+		<div id="main" class="rounded">
 			
-			<div id="todo">
+			<div id="todo" class = "rounded">
 				<?php
 				
 				require 'db.php';
@@ -37,17 +35,21 @@
 						$desc = $row->description;
 						$id = $row->id;
 						
-				echo '<div class="item">';
+				echo '<div class="item rounded" >';
 				
 				$data = <<<EOD
+
 <h4>$title</h4>
+
 <p>$desc</p>
+
 <input type="hidden" name="id" id="id" value="$id" />
 
-<div class="options">
-	<a class="deleteEntry" href="delete.php?id=$id">Delete</a>
-	<a class="editEntry" href="#">Edit</a>
+<div class="options rounded">
+	<a class="delete" href="delete.php?id=$id">Delete</a>
+	<a class="edit" href="#">Edit</a>
 </div>
+
 EOD;
 						echo $data;
 						echo '</div>';
@@ -57,29 +59,30 @@ EOD;
 					echo "<p>There are zero items. Add one now! </p>";
 				}	
 				?>
-			</div><!--end todo-->
+			</div>
 			
-			<div id="addNewEntry">
-				<h2>Add New Entry</h2>
+			<div id="add" class = "rounded">
+				<h3>Add New Entry</h2>
+				<hr/>
 				<form action="addItem.php" method="post">
-					<p>
+					<div class="form-group">
 						<label for="title"> Title</label>
 						<input type="text" name="title" id="title" class="input"/>
-					</p>
+					</div>
 				
-					<p>
+					<div class="form-group">
 						<label for="description"> Description</label>
 						<textarea name="description" id="description" rows="10" cols="35"></textarea>
-					</p>	
+					</div>
 					
 					<p>
-						<input type="submit" name="addEntry" id="addEntry" value="Add New Entry" />
+						<button type="submit" name="addEntry" id="addEntry" class = "btn btn-light" value = "AddNewEntry" >Add New Entry</button>
 					</p>
 				</form>
-			</div><!--end addNewEntry-->
+			</div>
 			
-		</div><!--end main-->
-	</div><!--end container-->
+		</div>
+	</div>
 
 
 	</body>

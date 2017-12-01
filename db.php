@@ -1,13 +1,14 @@
 <?php
 
-// my database class
+
 
 class Db {
 	
 	public $mysql;
 	
 	function __construct() {
-		$this->mysql = new mysqli('localhost', 'root', '', 'todo') or die("problem");
+		//enter db details
+		$this->mysql = new mysqli('', '', '', '') or die("problem");
 	}
 	
 	function delete_by_id($id) {
@@ -30,6 +31,6 @@ class Db {
 		 }
 	}
 	
-} // end class
+} 
 
 

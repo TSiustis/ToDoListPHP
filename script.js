@@ -1,16 +1,15 @@
 $(function() {
-	$("#addNewEntry").css('display', 'none');
-	$("#tabs").append('<li id="newitem_tab"><a href="#">New Item</a></li>');
+	$("#add").css('display', 'none');
+	$("#tabs").append('<li id="newitem_tab" ><a href="#">New Item</a></li>');
 	$('div.item').children().not('h4').hide();
-	
-	// toggles display of items
+	//display todo description
 	$('div.item').css('cursor', 'pointer').click(function(e) {
 		if (!$(e.target).is('textarea')) {
 			$(this).children().not('h4').slideToggle();
 		}
 	});
 	
-	// add new item tab click
+	// add new todo on click
 	
 	$("#tabs li").click(function() {
 		$("#tabs li").removeClass('selected');
@@ -18,18 +17,18 @@ $(function() {
 		
 		if($(this).attr('id') == 'newitem_tab') {
 			$('#todo').css('display', 'none');
-			$('#addNewEntry').css('display', 'block');
+			$('#add').css('display', 'block');
 		} else {
 			$('#todo').css('display', 'block');
-			$('#addNewEntry').css('display', 'none');			
+			$('#add').css('display', 'none');			
 		}
 	});
 	
 	$("#todo div:first").children().show();
 	
-	// Delete entry
+	// Delete todo
 	
-	$('a.deleteEntryAnchor').click(function() {
+	$('a.deleteAnchor').click(function() {
 		var thisparam = $(this);
 		thisparam.parent().parent().find('p').text('Please Wait...');
 		$.ajax({
@@ -44,7 +43,7 @@ $(function() {
 	
 	// update description
 	
-	$('.editEntry').click(function() {
+	$('.edit').click(function() {
 		var $this = $(this);
 		var oldText = $this.parent().parent().find('p').text();
 		var id = $this.parent().parent().find("#id").val();

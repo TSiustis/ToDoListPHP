@@ -4,7 +4,7 @@
 require 'db.php';
 $db = new Db();
 
-// adds new item
+// adds new todo
 
 if(isset($_POST['addEntry'])) {
 	$query = "INSERT INTO todo VALUES('', ?, ?)";
